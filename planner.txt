@@ -1,0 +1,241 @@
+🧠 Goal
+
+Create a simulated $1,000,000 portfolio where you:
+
+Pull real market data
+
+Test strategies
+
+Track performance
+
+Learn Linux + Python + Finance together
+
+🪜 Phase 1 — Build Your Environment (Week 1)
+
+You already have the right stack.
+
+1) Linux / WSL foundation
+
+Focus on:
+
+File navigation
+
+Installing Python packages
+
+Running scripts
+
+Git workflow
+
+Learn:
+
+cd, ls, mkdir, rm
+
+pip install
+
+virtual environments
+
+Why this matters:
+Real quant/dev work happens in Linux environments.
+
+2) Core Python tools to install
+
+Inside WSL:
+
+pandas → data analysis
+
+matplotlib → charts
+
+jupyter → research notebooks
+
+yfinance / Alpha Vantage → data
+
+backtrader → strategy testing
+
+Your machine becomes a research lab.
+
+📊 Phase 2 — Define the Portfolio Rules (Week 1–2)
+
+Before touching code, decide the simulation rules.
+
+Portfolio structure example
+
+Start simple:
+
+$1,000,000 total capital
+
+Max 10–15 stocks
+
+No leverage
+
+Rebalance monthly
+
+Decide:
+
+Tech heavy?
+
+ETF focused?
+
+Dividend?
+
+Growth?
+
+Quant strategy?
+
+This is your “fund mandate”.
+
+📈 Phase 3 — Data Pipeline (Week 2)
+
+Use:
+
+Yahoo Finance API
+
+Alpha Vantage
+
+Quandl
+
+Goal:
+Automatically pull:
+
+Price history
+
+Volume
+
+Indicators
+
+Start with:
+
+S&P 500 stocks
+
+Top tech companies
+
+ETFs
+
+🧪 Phase 4 — Strategy Building (Week 3–6)
+
+This is where the real learning happens.
+
+Start with SIMPLE strategies:
+
+Beginner strategies
+
+Moving average crossover
+
+Buy when price dips 5%
+
+Momentum strategy
+
+Equal-weight portfolio
+
+Then evolve into:
+
+Volatility-based allocation
+
+Sector rotation
+
+Mean reversion
+
+Use:
+
+Pandas for calculations
+
+Matplotlib for visualization
+
+🔬 Phase 5 — Backtesting (Week 5–8)
+
+Use Backtrader to simulate:
+
+“What if I ran this strategy since 2015?”
+
+You learn:
+
+Risk
+
+Drawdowns
+
+Sharpe ratio
+
+Win/loss rate
+
+This is what quants actually do.
+
+💼 Phase 6 — Portfolio Tracker (Week 6–10)
+
+Build a system that tracks:
+
+Current value
+
+Gains/losses
+
+Allocation %
+
+Best/worst performers
+
+Options:
+
+Jupyter dashboard
+
+CSV log system
+
+Python script that runs daily
+
+📓 Phase 7 — Research Journal (ONGOING)
+
+This is what separates amateurs from serious investors.
+
+Track:
+
+Why you bought
+
+Why you sold
+
+What worked
+
+What failed
+
+Use:
+
+Jupyter notebooks
+
+GitHub repo
+
+🧱 Phase 8 — GitHub Project Structure
+
+Organize like a real dev:
+
+quant-portfolio/
+│
+├── data/
+├── strategies/
+├── backtests/
+├── notebooks/
+├── portfolio_tracker/
+└── README.md
+
+
+This becomes your:
+
+Resume project
+
+Quant portfolio
+
+Internship proof
+
+🧠 Phase 9 — Learn Finance Alongside Coding
+
+Use Investopedia to understand:
+
+PE ratio
+
+Market cap
+
+Risk metrics
+
+Portfolio theory
+
+Blend:
+
+Finance knowledge
+
+Python automation
+
+That’s FinTech.
