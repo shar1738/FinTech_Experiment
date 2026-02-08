@@ -1,241 +1,189 @@
-🧠 Goal
+🧠 Goal (Spring 2026 FMA / StockTrak Challenge)
 
-Create a simulated $1,000,000 portfolio where you:
+Build and manage a RULES-COMPLIANT $1,000,000 virtual portfolio on StockTrak from:
+• Feb 1, 2026 → Apr 10, 2026
+Goal = maximize total return while following the competition constraints, using Python/Jupyter for research + decision support.
 
-Pull real market data
 
-Test strategies
+✅ Competition Rule Checklist (Design Constraints)
 
-Track performance
+You MUST:
+• Invest ≥ $900,000 by Feb 13, 2026 (within 2 weeks of open)
+• Stay invested through the end (cash must be ≤ $100,000 at close)
 
-Learn Linux + Python + Finance together
+You CANNOT:
+• Put >10% of portfolio value into any single asset
+• Use margin or short sell
+• Day trade
+• Buy stocks priced under $5
 
-🪜 Phase 1 — Build Your Environment (Week 1)
+Trading frictions/limits:
+• $10 commission per trade
+• Max 400 transactions total (US incl. ETFs, TSX, Mexico)
+• Cash earns 3% interest (nice, but you still must keep ≤$100k at the end)
 
-You already have the right stack.
 
-1) Linux / WSL foundation
+🧱 Project Stack (What you’re using)
 
-Focus on:
+Execution platform:
+• StockTrak (trades executed in the web simulator)
 
-File navigation
+Research & tooling:
+• uv (Python package + environment manager)
+• Jupyter notebooks (research, ranking, reports)
+• Git/GitHub (version control + documentation)
 
-Installing Python packages
+Compute:
+• GPU VM (for optional AI features: sentiment, news classification, factor discovery)
 
-Running scripts
 
-Git workflow
+🎯 Winning Strategy Theme (Because of the rules)
 
-Learn:
+This is a ~10-week performance contest with:
+• No leverage
+• No options/shorts
+• 10% cap per asset
 
-cd, ls, mkdir, rm
+So the edge comes from:
+• Smart allocation + weekly rotation (momentum/relative strength)
+• Controlled turnover (don’t burn trades; don’t pay unnecessary commissions)
+• Staying fully invested (but not concentrated)
 
-pip install
 
-virtual environments
+────────────────────────────────────────────────────────────
+PHASE 1 — Set Up Environment (NOW → Feb 10)
+────────────────────────────────────────────────────────────
+1) Create project repo + uv environment
+Repo structure:
+quant-fma-challenge/
+  data/
+  notebooks/
+  screeners/
+  portfolio/
+  reports/
+  README.md
 
-Why this matters:
-Real quant/dev work happens in Linux environments.
+uv environment (high level):
+• Create a venv with uv
+• Install: pandas, numpy, matplotlib, yfinance (or equivalent), jupyter, requests
 
-2) Core Python tools to install
+2) Jupyter workflow
+Notebooks you will maintain:
+• 00_universe.ipynb (your allowed tickers list)
+• 01_data_pull.ipynb (prices + returns)
+• 02_rankings.ipynb (momentum / volatility / drawdown)
+• 03_portfolio_plan.ipynb (current holdings, target weights, trades)
+• 04_weekly_report.ipynb (performance + decisions log)
 
-Inside WSL:
+3) (Optional) GPU VM setup for AI
+Only if it helps decisions:
+• Basic sentiment on news headlines / earnings transcripts
+• Classify “risk-on / risk-off” tone
+Keep it simple and test if it adds value (avoid overfitting).
 
-pandas → data analysis
 
-matplotlib → charts
+────────────────────────────────────────────────────────────
+PHASE 2 — Define Universe + Scoring (Feb 8 → Feb 11)
+────────────────────────────────────────────────────────────
 
-jupyter → research notebooks
+Goal: create a “tradeable list” of 30–60 assets you’re willing to rotate among.
 
-yfinance / Alpha Vantage → data
+Recommended universe (simple + contest-friendly):
+• 15–30 liquid US large caps (tech, semis, energy, financials, healthcare, industrials)
+• 10–20 sector ETFs (US)
+• 5–10 non-US (TSX/Mexico) ONLY if you understand liquidity + behavior
 
-backtrader → strategy testing
+Rules to bake into your data:
+• Price >= $5 filter
+• Track volatility and max drawdown (you don’t want one asset blowing up your run)
 
-Your machine becomes a research lab.
+Scoring ideas (start simple, expand later):
+• Momentum (e.g., 20-day and 60-day returns)
+• Volatility penalty (prefer strong trend with manageable vol)
+• Trend confirmation (moving average slope / price above MA)
 
-📊 Phase 2 — Define the Portfolio Rules (Week 1–2)
 
-Before touching code, decide the simulation rules.
+────────────────────────────────────────────────────────────
+PHASE 3 — Initial “Eligible” Portfolio Build (MUST COMPLETE BY Feb 13)
+────────────────────────────────────────────────────────────
 
-Portfolio structure example
+Objective: satisfy the $900k invested rule quickly and safely, while leaving room to rotate.
 
-Start simple:
+Template allocation (easy compliance):
+• 10 positions × 10% each = 100% invested (or 9 × 10% + 1 × 5% + 1 × 5%)
 
-$1,000,000 total capital
+Suggested starting mix:
+• 4 sector ETFs (broad exposure, reduces single-name shock)
+• 6 high-momentum large caps (from your rankings)
 
-Max 10–15 stocks
+Execution rules:
+• Keep each asset weight <= 9.5–10.0% to avoid drift above 10% after it runs up
+• Expect to rebalance weekly; don’t overtrade on Day 1
 
-No leverage
 
-Rebalance monthly
+────────────────────────────────────────────────────────────
+PHASE 4 — Weekly Rotation System (Feb 14 → Apr 10)
+────────────────────────────────────────────────────────────
 
-Decide:
+Cadence (no day trading):
+• Once per week (e.g., Sunday night planning → Monday execution)
 
-Tech heavy?
+Weekly checklist:
+1) Update prices and compute:
+   • 1-week, 1-month, 3-month momentum
+   • Volatility, drawdown
+2) Rank assets and pick “Top N”
+3) Identify “Bottom K” holdings to replace (K = 1–3 typically)
+4) Generate a trade list that:
+   • Keeps every holding <=10%
+   • Keeps total trades low (commission + trade budget)
 
-ETF focused?
+Trade budget management:
+• Max trades = 400; target < 120 total to be safe
+• Rule of thumb: 5–10 trades/week is plenty
+• Avoid micro-adjustments; rotate decisively
 
-Dividend?
+Risk control:
+• Diversify across sectors (even if 10% cap forces it, be intentional)
+• Use a “kill switch”:
+   – If a holding breaks trend badly (e.g., drops below key MA + relative strength collapses), replace it
+• Keep 0–10% cash buffer ONLY if needed for compliance, but remember end-of-challenge cash must be ≤ $100k
 
-Growth?
 
-Quant strategy?
+────────────────────────────────────────────────────────────
+PHASE 5 — Reporting + Journal (Weekly)
+────────────────────────────────────────────────────────────
 
-This is your “fund mandate”.
+Every week, write a short report (1 page max):
+• Current portfolio (tickers + weights)
+• Weekly return + overall return
+• Best/worst performers
+• What you changed and WHY (rankings + notes)
+• What you’ll watch next week
 
-📈 Phase 3 — Data Pipeline (Week 2)
+This helps you:
+• Stay consistent (and not emotionally chase)
+• Explain decisions if you later present this as a portfolio project
 
-Use:
 
-Yahoo Finance API
+────────────────────────────────────────────────────────────
+PHASE 6 — Final Two Weeks Playbook (Mar 27 → Apr 10)
+────────────────────────────────────────────────────────────
 
-Alpha Vantage
+Goals:
+• Protect gains while still participating in upside
 
-Quandl
+Actions:
+• Reduce turnover (commissions add up)
+• Prefer smoother-trending assets / broad ETFs if volatility spikes
+• Ensure cash ≤ $100k at the close (eligibility requirement)
+• Double-check no holding drifted above 10% (trim if necessary)
 
-Goal:
-Automatically pull:
 
-Price history
+────────────────────────────────────────────────────────────
+Deliverables (What you’ll have at the end)
 
-Volume
-
-Indicators
-
-Start with:
-
-S&P 500 stocks
-
-Top tech companies
-
-ETFs
-
-🧪 Phase 4 — Strategy Building (Week 3–6)
-
-This is where the real learning happens.
-
-Start with SIMPLE strategies:
-
-Beginner strategies
-
-Moving average crossover
-
-Buy when price dips 5%
-
-Momentum strategy
-
-Equal-weight portfolio
-
-Then evolve into:
-
-Volatility-based allocation
-
-Sector rotation
-
-Mean reversion
-
-Use:
-
-Pandas for calculations
-
-Matplotlib for visualization
-
-🔬 Phase 5 — Backtesting (Week 5–8)
-
-Use Backtrader to simulate:
-
-“What if I ran this strategy since 2015?”
-
-You learn:
-
-Risk
-
-Drawdowns
-
-Sharpe ratio
-
-Win/loss rate
-
-This is what quants actually do.
-
-💼 Phase 6 — Portfolio Tracker (Week 6–10)
-
-Build a system that tracks:
-
-Current value
-
-Gains/losses
-
-Allocation %
-
-Best/worst performers
-
-Options:
-
-Jupyter dashboard
-
-CSV log system
-
-Python script that runs daily
-
-📓 Phase 7 — Research Journal (ONGOING)
-
-This is what separates amateurs from serious investors.
-
-Track:
-
-Why you bought
-
-Why you sold
-
-What worked
-
-What failed
-
-Use:
-
-Jupyter notebooks
-
-GitHub repo
-
-🧱 Phase 8 — GitHub Project Structure
-
-Organize like a real dev:
-
-quant-portfolio/
-│
-├── data/
-├── strategies/
-├── backtests/
-├── notebooks/
-├── portfolio_tracker/
-└── README.md
-
-
-This becomes your:
-
-Resume project
-
-Quant portfolio
-
-Internship proof
-
-🧠 Phase 9 — Learn Finance Alongside Coding
-
-Use Investopedia to understand:
-
-PE ratio
-
-Market cap
-
-Risk metrics
-
-Portfolio theory
-
-Blend:
-
-Finance knowledge
-
-Python automation
-
-That’s FinTech.
+• A documented, rules-compliant trading system
+• A full performance log + weekly reports
+• A clean GitHub repo showing your workflow (WSL + uv + Jupyter)
+• (Optional) AI experiments on the GPU VM (sentiment/risk regime models)
