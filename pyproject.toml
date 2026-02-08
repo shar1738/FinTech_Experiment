@@ -1,0 +1,14 @@
+[project]
+name = "stock-track-challenge-2026"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "jupyterlab>=4.5.3",
+    "matplotlib>=3.10.8",
+    "numpy>=2.4.2",
+    "pandas>=3.0.0",
+    "requests>=2.32.5",
+    "yfinance>=1.1.0",
+]
