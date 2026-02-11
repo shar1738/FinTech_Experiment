@@ -1,189 +1,262 @@
-🧠 Goal (Spring 2026 FMA / StockTrak Challenge)
+🧠 QUANT ROADMAP — From Foundations → Building an Algorithmic System (Written by ChatGPT 5.2, a rough roadmap on what is trying to be acomplished)
 
-Build and manage a RULES-COMPLIANT $1,000,000 virtual portfolio on StockTrak from:
-• Feb 1, 2026 → Apr 10, 2026
-Goal = maximize total return while following the competition constraints, using Python/Jupyter for research + decision support.
+Goal:
+Develop the skills, research pipeline, and infrastructure needed to design, test, and deploy a data-driven trading algorithm. This roadmap focuses on long-term quant development rather than a single competition timeline.
 
-
-✅ Competition Rule Checklist (Design Constraints)
-
-You MUST:
-• Invest ≥ $900,000 by Feb 13, 2026 (within 2 weeks of open)
-• Stay invested through the end (cash must be ≤ $100,000 at close)
-
-You CANNOT:
-• Put >10% of portfolio value into any single asset
-• Use margin or short sell
-• Day trade
-• Buy stocks priced under $5
-
-Trading frictions/limits:
-• $10 commission per trade
-• Max 400 transactions total (US incl. ETFs, TSX, Mexico)
-• Cash earns 3% interest (nice, but you still must keep ≤$100k at the end)
-
-
-🧱 Project Stack (What you’re using)
-
-Execution platform:
-• StockTrak (trades executed in the web simulator)
-
-Research & tooling:
-• uv (Python package + environment manager)
-• Jupyter notebooks (research, ranking, reports)
-• Git/GitHub (version control + documentation)
-
-Compute:
-• GPU VM (for optional AI features: sentiment, news classification, factor discovery)
-
-
-🎯 Winning Strategy Theme (Because of the rules)
-
-This is a ~10-week performance contest with:
-• No leverage
-• No options/shorts
-• 10% cap per asset
-
-So the edge comes from:
-• Smart allocation + weekly rotation (momentum/relative strength)
-• Controlled turnover (don’t burn trades; don’t pay unnecessary commissions)
-• Staying fully invested (but not concentrated)
-
+The outcome is a repeatable system:
+• Research → Model → Backtest → Evaluate → Deploy → Improve
 
 ────────────────────────────────────────────────────────────
-PHASE 1 — Set Up Environment (NOW → Feb 10)
-────────────────────────────────────────────────────────────
-1) Create project repo + uv environment
-Repo structure:
-quant-fma-challenge/
-  data/
-  notebooks/
-  screeners/
-  portfolio/
-  reports/
-  README.md
-
-uv environment (high level):
-• Create a venv with uv
-• Install: pandas, numpy, matplotlib, yfinance (or equivalent), jupyter, requests
-
-2) Jupyter workflow
-Notebooks you will maintain:
-• 00_universe.ipynb (your allowed tickers list)
-• 01_data_pull.ipynb (prices + returns)
-• 02_rankings.ipynb (momentum / volatility / drawdown)
-• 03_portfolio_plan.ipynb (current holdings, target weights, trades)
-• 04_weekly_report.ipynb (performance + decisions log)
-
-3) (Optional) GPU VM setup for AI
-Only if it helps decisions:
-• Basic sentiment on news headlines / earnings transcripts
-• Classify “risk-on / risk-off” tone
-Keep it simple and test if it adds value (avoid overfitting).
-
-
-────────────────────────────────────────────────────────────
-PHASE 2 — Define Universe + Scoring (Feb 8 → Feb 11)
+PHASE 1 — Core Foundations (Base Layer)
 ────────────────────────────────────────────────────────────
 
-Goal: create a “tradeable list” of 30–60 assets you’re willing to rotate among.
+Objective: Build the math, coding, and finance intuition required to think like a quant.
 
-Recommended universe (simple + contest-friendly):
-• 15–30 liquid US large caps (tech, semis, energy, financials, healthcare, industrials)
-• 10–20 sector ETFs (US)
-• 5–10 non-US (TSX/Mexico) ONLY if you understand liquidity + behavior
+Key Skills to Develop:
+• Python for data analysis (pandas, numpy)
+• Statistics fundamentals
+– Distributions
+– Correlation vs causation
+– Regression
+– Hypothesis testing
+• Linear algebra basics
+• Time series concepts
+• Market structure knowledge
 
-Rules to bake into your data:
-• Price >= $5 filter
-• Track volatility and max drawdown (you don’t want one asset blowing up your run)
+Focus Topics:
+• Returns (log vs simple)
+• Volatility
+• Drawdowns
+• Compounding
+• Risk vs reward tradeoffs
 
-Scoring ideas (start simple, expand later):
-• Momentum (e.g., 20-day and 60-day returns)
-• Volatility penalty (prefer strong trend with manageable vol)
-• Trend confirmation (moving average slope / price above MA)
+Mindset Shift:
+Move from:
+“Which stock should I buy?”
 
-
-────────────────────────────────────────────────────────────
-PHASE 3 — Initial “Eligible” Portfolio Build (MUST COMPLETE BY Feb 13)
-────────────────────────────────────────────────────────────
-
-Objective: satisfy the $900k invested rule quickly and safely, while leaving room to rotate.
-
-Template allocation (easy compliance):
-• 10 positions × 10% each = 100% invested (or 9 × 10% + 1 × 5% + 1 × 5%)
-
-Suggested starting mix:
-• 4 sector ETFs (broad exposure, reduces single-name shock)
-• 6 high-momentum large caps (from your rankings)
-
-Execution rules:
-• Keep each asset weight <= 9.5–10.0% to avoid drift above 10% after it runs up
-• Expect to rebalance weekly; don’t overtrade on Day 1
-
+To:
+“What measurable pattern produces repeatable edge?”
 
 ────────────────────────────────────────────────────────────
-PHASE 4 — Weekly Rotation System (Feb 14 → Apr 10)
+PHASE 2 — Research Environment Setup
 ────────────────────────────────────────────────────────────
 
-Cadence (no day trading):
-• Once per week (e.g., Sunday night planning → Monday execution)
+Goal: Create a professional quant workspace that supports experimentation.
 
-Weekly checklist:
-1) Update prices and compute:
-   • 1-week, 1-month, 3-month momentum
-   • Volatility, drawdown
-2) Rank assets and pick “Top N”
-3) Identify “Bottom K” holdings to replace (K = 1–3 typically)
-4) Generate a trade list that:
-   • Keeps every holding <=10%
-   • Keeps total trades low (commission + trade budget)
+Project Structure:
+quant-research/
+data/
+notebooks/
+signals/
+backtests/
+models/
+utils/
+reports/
+README.md
 
-Trade budget management:
-• Max trades = 400; target < 120 total to be safe
-• Rule of thumb: 5–10 trades/week is plenty
-• Avoid micro-adjustments; rotate decisively
+Tooling Stack:
+• uv → environment + dependency management
+• Python → core language
+• Jupyter → research + experimentation
+• Git → version control + idea tracking
 
-Risk control:
-• Diversify across sectors (even if 10% cap forces it, be intentional)
-• Use a “kill switch”:
-   – If a holding breaks trend badly (e.g., drops below key MA + relative strength collapses), replace it
-• Keep 0–10% cash buffer ONLY if needed for compliance, but remember end-of-challenge cash must be ≤ $100k
+Core Libraries:
+• pandas (data manipulation)
+• numpy (math)
+• matplotlib (visualization)
+• requests (data pulls)
+• yfinance / APIs (price data)
 
-
-────────────────────────────────────────────────────────────
-PHASE 5 — Reporting + Journal (Weekly)
-────────────────────────────────────────────────────────────
-
-Every week, write a short report (1 page max):
-• Current portfolio (tickers + weights)
-• Weekly return + overall return
-• Best/worst performers
-• What you changed and WHY (rankings + notes)
-• What you’ll watch next week
-
-This helps you:
-• Stay consistent (and not emotionally chase)
-• Explain decisions if you later present this as a portfolio project
-
+What You’re Building:
+A personal research lab where every idea becomes testable.
 
 ────────────────────────────────────────────────────────────
-PHASE 6 — Final Two Weeks Playbook (Mar 27 → Apr 10)
+PHASE 3 — Data Pipeline Creation
 ────────────────────────────────────────────────────────────
 
-Goals:
-• Protect gains while still participating in upside
+Objective: Learn to collect, clean, and structure market data.
 
-Actions:
-• Reduce turnover (commissions add up)
-• Prefer smoother-trending assets / broad ETFs if volatility spikes
-• Ensure cash ≤ $100k at the close (eligibility requirement)
-• Double-check no holding drifted above 10% (trim if necessary)
+Data Types to Work With:
+• Daily price data
+• Volume
+• Returns
+• Sector data
+• Index benchmarks
 
+Key Skills:
+• Pulling data automatically
+• Cleaning missing values
+• Creating derived features:
+– Rolling returns
+– Moving averages
+– Volatility measures
+– Momentum metrics
+
+Core Principle:
+Better data handling = better models.
 
 ────────────────────────────────────────────────────────────
-Deliverables (What you’ll have at the end)
+PHASE 4 — Signal Discovery (Finding Edge)
+────────────────────────────────────────────────────────────
 
-• A documented, rules-compliant trading system
-• A full performance log + weekly reports
-• A clean GitHub repo showing your workflow (WSL + uv + Jupyter)
-• (Optional) AI experiments on the GPU VM (sentiment/risk regime models)
+Objective: Identify measurable patterns that could generate alpha.
+
+Start with Simple, Proven Factors:
+• Momentum
+• Mean reversion
+• Trend following
+• Volatility scaling
+• Relative strength
+
+Questions to Explore:
+• Do assets that go up keep going up?
+• Do extreme drops bounce back?
+• Does lower volatility outperform over time?
+• Do sector rotations follow patterns?
+
+Process:
+
+1. Form a hypothesis
+2. Convert it into a numeric signal
+3. Measure performance historically
+
+────────────────────────────────────────────────────────────
+PHASE 5 — Backtesting Framework
+────────────────────────────────────────────────────────────
+
+Objective: Simulate strategies before risking capital.
+
+Core Components:
+• Position sizing logic
+• Entry/exit rules
+• Portfolio rebalancing logic
+• Transaction cost simulation
+• Performance tracking
+
+Metrics to Measure:
+• Total return
+• Sharpe ratio
+• Max drawdown
+• Win/loss ratio
+• Turnover rate
+
+Critical Lesson:
+A strategy is only real if it survives:
+• Fees
+• Slippage
+• Different time periods
+
+────────────────────────────────────────────────────────────
+PHASE 6 — Portfolio Construction Logic
+────────────────────────────────────────────────────────────
+
+Objective: Move from “single trade ideas” to systematic allocation.
+
+Concepts to Learn:
+• Diversification
+• Risk budgeting
+• Equal weight vs optimized weight
+• Volatility targeting
+• Correlation management
+
+Approaches to Build:
+• Top-N ranking systems
+• Factor-weighted portfolios
+• Sector rotation models
+• Momentum baskets
+
+────────────────────────────────────────────────────────────
+PHASE 7 — Model Expansion (Intermediate Quant)
+────────────────────────────────────────────────────────────
+
+Objective: Improve signals using more advanced techniques.
+
+Add:
+• Multi-factor scoring systems
+• Regime detection:
+– Bull vs bear
+– High vs low volatility environments
+• Feature engineering
+
+Optional AI Exploration:
+• News sentiment scoring
+• Event classification
+• Pattern detection
+
+Rule:
+Models must stay explainable.
+If you can’t explain it, you can’t trust it.
+
+────────────────────────────────────────────────────────────
+PHASE 8 — Building a Real Algorithm
+────────────────────────────────────────────────────────────
+
+Objective: Combine all components into a complete system.
+
+Your Algorithm Should Define:
+
+Signal Engine:
+• How assets are scored
+
+Selection Logic:
+• Which assets get chosen
+
+Position Sizing:
+• How much capital per asset
+
+Rebalancing Schedule:
+• Daily / weekly / monthly
+
+Risk Controls:
+• Max allocation rules
+• Volatility limits
+• Drawdown protection
+
+────────────────────────────────────────────────────────────
+PHASE 9 — Testing & Validation
+────────────────────────────────────────────────────────────
+
+Objective: Prove the system works across conditions.
+
+Test Across:
+• Different years
+• Bull markets
+• Bear markets
+• High volatility periods
+
+Avoid:
+• Overfitting
+• Curve fitting
+• Excessive parameter tuning
+
+Golden Standard:
+The simpler system that survives longer is better.
+
+────────────────────────────────────────────────────────────
+PHASE 10 — Continuous Improvement Loop
+────────────────────────────────────────────────────────────
+
+The Quant Cycle:
+
+Research Idea
+→ Build Signal
+→ Backtest
+→ Evaluate
+→ Improve
+→ Repeat
+
+This becomes your long-term development engine.
+
+────────────────────────────────────────────────────────────
+Long-Term Outcome
+
+You will have:
+
+• A structured quant research lab
+• A repeatable strategy development process
+• A portfolio construction engine
+• A tested algorithm framework
+• A foundation for real-world deployment
+
+End Goal:
+Transition from manual analysis → systematic, rules-based decision making.
