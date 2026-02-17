@@ -1,4 +1,5 @@
 VIDEO LINK (https://www.youtube.com/watch?v=Ala6PHlYjmw) -Great explannation of everything git does
+
 GIT DOCUMENTATION (https://git-scm.com/docs) -Has all info
 
 Git — Condensed cheat-sheet (explanations + commands) - Written by ChatGPT-5 Mini using a transcript from video listed above
