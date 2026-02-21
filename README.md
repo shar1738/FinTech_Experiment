@@ -53,7 +53,7 @@ python3.13 --version
 
 ### UV (Fast Python Package Manager)
 
-UV is a fast, modern Python package manager written in Rust. Just use it — it's awesome!
+UV is a fast, modern Python package manager written in Rust. - Just use it, it's great
 
 #### Installing UV on Linux/macOS
 
