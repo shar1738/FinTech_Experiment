@@ -18,11 +18,6 @@ For help on basic tools, refer to the `Help/` folder:
 - `bash_explanation.md` — Bash terminal commands 
 - `AI_explanation.md` — AI prompting guide
 
-### Finance + Programming Resources
-- [Investopedia](https://www.investopedia.com/) — Financial concepts encyclopedia
-- [Python for Finance (O'Reilly)](https://www.oreilly.com/library/view/python-for-finance/9781491944320/) — Comprehensive book
-- [Daniel Boctor](https://www.youtube.com/watch?v=cdwGyCLn770) - Great video and channel for getting started with python and finance.
-
 ## Prerequisites
 
 ### Python
