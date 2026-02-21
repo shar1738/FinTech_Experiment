@@ -195,7 +195,9 @@ AI still invents technical decisions.
 
 This actually is NOT the best practice to ask for this much in a single prompt as is explainned below. BUT, overall this is still great reference for the most successful prompting. 
 
-Build a quantitative finance backtesting and portfolio analysis system using the following specifications:
+---
+
+"Build a quantitative finance backtesting and portfolio analysis system using the following specifications:
 
 • DOCUMENTATION TO REFER TO
   - Python documentation: https://docs.python.org/3/
@@ -262,7 +264,7 @@ Build a quantitative finance backtesting and portfolio analysis system using the
   - Mix signal generation with execution logic
   - Use global variables
   - Hardcode parameters inside functions
-  - Overengineer with classes if not needed
+  - Overengineer with classes if not needed"
 
 **Why this works:**
 
