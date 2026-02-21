@@ -1,3 +1,7 @@
+VIDEO LINK — [Coding Sloth - Does a great job at showing how LLMs can be used effectively](https://www.youtube.com/watch?v=91B2_v-wOaws)
+
+---
+
 # How to Prompt Effectively Using AI (And Why It Matters)
 
 **All content below was formatted by ChatGPT 5.2 and myself, using the same techniques explained below.**
@@ -5,10 +9,6 @@
 ---
 
 ## DISCLAIMER
-
-All credits go to the YouTuber who made the video — I highly suggest checking out the Coding Sloth. Even if you don't know what he is talking about 100% of the time, he is still very entertaining and informative. 
-
-Also I have slightly modified the explanations to match more with a finance use case, for obvious reasons... 
 
 **FOR PEOPLE LEARNING TO PROGRAM**
 
@@ -18,11 +18,9 @@ Plus actual coding is fun :)
 
 Or at least I think so...
 
----
+All credits for the AI explanations below go to the YouTuber who made the video — I highly suggest checking out the Coding Sloth. Even if you don't know what he is talking about 100% of the time, he is still very entertaining and informative. 
 
-## VIDEO LINK
-
-- https://www.youtube.com/watch?v=91B_v-wOaws — Does a great job at showing how LLMs can be used effectively.
+Also I have slightly modified the explanations to match more with a finance use case, for obvious reasons... 
 
 ---
 
@@ -30,8 +28,40 @@ Or at least I think so...
 
 - MCPs: https://mcpmarket.com/server  
 - AGENTS.MD: https://agents.md/#examples  
-- Claude prompting best practices: https://platform.claude.com/docs/en/b...  
-- OpenAI prompting best practices: https://help.openai.com/en/articles/6...
+- Claude prompting best practices: https://docs.anthropic.com/en/docs/claude-code/prompting  
+- OpenAI prompting best practices: https://platform.openai.com/docs/guides/prompt-engineering
+
+---
+
+## AI IN THE TERMINAL IS A SUPERPOWER
+
+Using AI directly in your terminal brings the power of AI assistants to your command line workflow. Instead of switching between a browser and your IDE(Integrated Development Enviroment), you can interact with an AI coding agent while staying in your terminal.
+
+**Video:** [What AI in the Terminal Looks Like](https://www.youtube.com/watch?v=MsQACpcuTkU) - Network Chuck is also great, highly recommend.
+
+### How It Works
+
+- **Terminal-based interface** — AI agents run in your terminal alongside your code
+- **File access** — AI can read, edit, and create files in your project
+- **Command execution** — AI can run shell commands (build, test, lint)
+- **Context awareness** — AI understands your project structure and codebase
+- **Iterative workflow** — Work back-and-forth with AI on tasks
+
+### Common Terminal AI Tools
+
+- **OpenCode** — Open source AI coding agent (what you're using now)
+- **Claude CLI** — Anthropic's command-line interface
+- **Aider** — AI pair programming in terminal
+- **Warp** — AI-powered terminal
+
+### Benefits
+
+- Stay in one environment (terminal + IDE)
+- Faster iteration cycles
+- Direct access to build/test output
+- Better context than copy-pasting to chat
+
+---
 
 ---
 
@@ -64,6 +94,7 @@ The true difference is how well you prompt it.
 AI is only as good as the context, clarity, and constraints you provide. Poor prompts create poor outputs. Detailed, structured prompts create high-quality results.
 
 The goal of this guide is to show you how to consistently get better results.
+
 
 ---
 

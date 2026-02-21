@@ -1,6 +1,8 @@
-VIDEO LINK (https://www.youtube.com/watch?v=I4EWvMFj37g) - Good little introduction video
+VIDEO LINK — [Good little introduction video](https://www.youtube.com/watch?v=I4EWvMFj37g)
 
-BASH DOCUMENTATION (https://www.gnu.org/software/bash/manual/bash.html) - All info
+DOCUMENTATION — [GNU Bash Manual](https://www.gnu.org/software/bash/manual/bash.html)
+
+---
 
 # Bash Commands Cheat Sheet — Basic & Advanced
 
