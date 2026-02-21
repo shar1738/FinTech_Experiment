@@ -1,4 +1,4 @@
-# Getting Started with Quant Experiment
+# Getting Started with Financial Tech Experimentation
 
 This repository is designed to help anyone get started with analyzing the financial world through programming. Whether you're interested in stock trading, portfolio management, or quantitative analysis, this repo provides tools and templates to explore financial data programmatically.
 
