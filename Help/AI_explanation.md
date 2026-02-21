@@ -2,7 +2,7 @@ VIDEO LINK — [Coding Sloth - Does a great job at showing how LLMs can be used 
 
 ---
 
-# How to Prompt Effectively Using AI (And Why It Matters)
+# How to Prompt Effectively Use AI (And Why It Matters)
 
 **All content below was formatted by ChatGPT 5.2 and myself, using the same techniques explained below.**
 
